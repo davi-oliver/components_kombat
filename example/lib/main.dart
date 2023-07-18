@@ -3,9 +3,10 @@ import 'package:componets_kombat/login/login_components.dart'
     as componets_kombat_ui;
 import 'package:componets_kombat/login/func/functions.dart'
     as componets_kombat_function;
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(Phoenix(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
