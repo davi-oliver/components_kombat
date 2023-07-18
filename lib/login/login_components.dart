@@ -10,18 +10,13 @@ import 'package:componets_kombat/theme/theme_mode.dart';
 class LoginScreen extends StatefulWidget {
   final BuildContext contextPage;
   final Function rebirth;
-  final Function()? onTapLogin;
-  final Function()? onTapEsqueciSenha;
-  final Function()? functionStorePass;
+
   final Function()? initPage;
 
   LoginScreen({
     Key? key,
     required this.contextPage,
     required this.rebirth,
-    required this.onTapLogin,
-    required this.onTapEsqueciSenha,
-    required this.functionStorePass,
     required this.initPage,
   }) : super(key: key);
 
@@ -206,7 +201,7 @@ class _LoginScreenState extends State<LoginScreen> with ValidTexFields {
                             child: Row(
                               children: [
                                 GestureDetector(
-                                  onTap: widget.onTapEsqueciSenha,
+                                  onTap: () {},
                                   child: Text(
                                     "Esqueci minha senha",
                                     style: KThemeModeApp.of(contextPage)
@@ -239,9 +234,7 @@ class _LoginScreenState extends State<LoginScreen> with ValidTexFields {
                                   });
                                   if (_storePass &&
                                       emailcontroller.text.isNotEmpty &&
-                                      senhacontroller.text.isNotEmpty) {
-                                    await widget.functionStorePass!();
-                                  }
+                                      senhacontroller.text.isNotEmpty) {}
                                 }),
                           ),
                           Container(
@@ -315,7 +308,8 @@ class _LoginScreenState extends State<LoginScreen> with ValidTexFields {
                                       if (formState.currentState!.validate()) {
                                         print("eeeuuuadValidado");
 
-                                        widget.onTapLogin!();
+                                        await LoginFunction(contextPage)
+                                            .signInWithEmail();
                                       } else {
                                         setState(() {
                                           _carregando = false;

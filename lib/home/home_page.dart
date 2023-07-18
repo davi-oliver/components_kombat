@@ -35,13 +35,6 @@ class _HomeVigPageState extends State<HomeVigPage> {
           builder: (context) => LoginScreen(
             contextPage: context,
             rebirth: () {},
-            functionStorePass: () {},
-            onTapLogin: () {
-              print("davizr");
-            },
-            onTapEsqueciSenha: () {
-              print("davizr");
-            },
             initPage: () {
               print("davizr");
               widget.rebirth;

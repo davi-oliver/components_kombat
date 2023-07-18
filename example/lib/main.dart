@@ -82,6 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return componets_kombat_ui.LoginScreen(
+      rebirth: !mounted ? Phoenix.rebirth(context) : () {},
       contextPage: context,
       functionStorePass:
           componets_kombat_function.LoginFunction(context).getStoredLoginAgent,
@@ -90,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
       onTapEsqueciSenha:
           componets_kombat_function.LoginFunction(context).recoverPassword,
       initPage: () {
-        print("davizr");
+        print("davizr rebirth");
       },
     );
   }
