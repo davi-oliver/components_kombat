@@ -1,18 +1,23 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:async';
+
+import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 
 import 'package:componets_kombat/componets_kombat_export.dart';
 import 'package:componets_kombat/globals_widgets.dart';
 import 'package:componets_kombat/local_storage/local.dart';
 import 'package:componets_kombat/theme/theme_mode.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 import 'home_widgets.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
 
 class HomeVigPage extends StatefulWidget {
-  const HomeVigPage({Key? key}) : super(key: key);
+  final Function rebirth;
+  const HomeVigPage({
+    Key? key,
+    required this.rebirth,
+  }) : super(key: key);
 
   @override
   _HomeVigPageState createState() => _HomeVigPageState();
@@ -29,6 +34,7 @@ class _HomeVigPageState extends State<HomeVigPage> {
         MaterialPageRoute(
           builder: (context) => LoginScreen(
             contextPage: context,
+            rebirth: () {},
             functionStorePass: () {},
             onTapLogin: () {
               print("davizr");
@@ -38,7 +44,7 @@ class _HomeVigPageState extends State<HomeVigPage> {
             },
             initPage: () {
               print("davizr");
-              return Phoenix.rebirth(context);
+              widget.rebirth;
             },
           ),
         ),

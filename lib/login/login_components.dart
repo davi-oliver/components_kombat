@@ -1,14 +1,15 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:componets_kombat/login/func/functions.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'package:componets_kombat/login/func/functions.dart';
 import 'package:componets_kombat/login/widget/components.dart';
 import 'package:componets_kombat/theme/theme_mode.dart';
 
 class LoginScreen extends StatefulWidget {
   final BuildContext contextPage;
+  final Function rebirth;
   final Function()? onTapLogin;
   final Function()? onTapEsqueciSenha;
   final Function()? functionStorePass;
@@ -16,11 +17,12 @@ class LoginScreen extends StatefulWidget {
 
   LoginScreen({
     Key? key,
+    required this.contextPage,
+    required this.rebirth,
     required this.onTapLogin,
     required this.onTapEsqueciSenha,
     required this.functionStorePass,
     required this.initPage,
-    required this.contextPage,
   }) : super(key: key);
 
   @override

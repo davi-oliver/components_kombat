@@ -61,7 +61,11 @@ class LoginFunction {
       // await GetAgente(context).getAgente();
 
       return Navigator.push(
-          context, MaterialPageRoute(builder: (_) => HomeVigPage()));
+          context,
+          MaterialPageRoute(
+              builder: (_) => HomeVigPage(
+                    rebirth: () {},
+                  )));
     });
 
     // print('dados de token> ${globalsUserInfo.tokenId} ');
