@@ -31,7 +31,9 @@ dependencies:
   flutter:
     sdk: flutter
   componets_kombat:
-    path: ../
+    git:
+      url: https://github.com/davi-oliver/components_kombat
+      ref: main
 
 
   # The following adds the Cupertino Icons font to your application.

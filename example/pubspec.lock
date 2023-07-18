@@ -124,9 +124,11 @@ packages:
   componets_kombat:
     dependency: "direct main"
     description:
-      path: ".."
-      relative: true
-    source: path
+      path: "."
+      ref: main
+      resolved-ref: "87777e37ef226ee21af0f579223dcf7b8b6b4aa2"
+      url: "https://github.com/davi-oliver/components_kombat"
+    source: git
     version: "0.0.1"
   connectivity:
     dependency: transitive
