@@ -88,7 +88,9 @@ class _MyHomePageState extends State<MyHomePage> {
           componets_kombat_function.LoginFunction(context).signInWithEmail,
       onTapEsqueciSenha:
           componets_kombat_function.LoginFunction(context).recoverPassword,
-      initPage: () {},
+      initPage: () {
+        print("davizr");
+      },
     );
   }
 }

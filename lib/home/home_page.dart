@@ -55,7 +55,7 @@ class _HomeVigPageState extends State<HomeVigPage> {
     // final _gInfos = Provider.of<GlobalUserInfos>(context, listen: true);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: !_carregando
+      home: _carregando
           // ?
           ? Container(
               color: KThemeModeApp.of(context).primaryBackground,
