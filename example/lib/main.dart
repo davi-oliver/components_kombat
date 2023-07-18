@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:componets_kombat/login/login_components.dart'
     as componets_kombat_ui;
-import 'package:componets_kombat/login/func/functions.dart'
-    as componets_kombat_function;
+
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 void main() {
@@ -84,12 +83,6 @@ class _MyHomePageState extends State<MyHomePage> {
     return componets_kombat_ui.LoginScreen(
       rebirth: !mounted ? Phoenix.rebirth(context) : () {},
       contextPage: context,
-      functionStorePass:
-          componets_kombat_function.LoginFunction(context).getStoredLoginAgent,
-      onTapLogin:
-          componets_kombat_function.LoginFunction(context).signInWithEmail,
-      onTapEsqueciSenha:
-          componets_kombat_function.LoginFunction(context).recoverPassword,
       initPage: () {
         print("davizr rebirth");
       },

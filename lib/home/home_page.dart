@@ -28,7 +28,7 @@ class _HomeVigPageState extends State<HomeVigPage> {
   bool _init = true;
   Future<Timer> simulateInitialDataLoading() async {
     return Timer(
-      const Duration(seconds: 2),
+      const Duration(seconds: 7),
       () => Navigator.push(
         context,
         MaterialPageRoute(
@@ -52,7 +52,7 @@ class _HomeVigPageState extends State<HomeVigPage> {
       // await GlobalsAlerts(context).alertInfoProducao();
     }
     _init = false;
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 4));
 
     setState(() {
       _carregando = false;
