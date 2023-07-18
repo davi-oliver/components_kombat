@@ -5,7 +5,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
-import 'package:componets_kombat/componets_kombat_export.dart';
+// import 'package:componets_kombat/componets_kombat_export.dart';
 import 'package:componets_kombat/globals_widgets.dart';
 import 'package:componets_kombat/local_storage/local.dart';
 import 'package:componets_kombat/theme/theme_mode.dart';
@@ -26,28 +26,28 @@ class HomeVigPage extends StatefulWidget {
 class _HomeVigPageState extends State<HomeVigPage> {
   bool _carregando = true;
   bool _init = true;
-  Future<Timer> simulateInitialDataLoading() async {
-    return Timer(
-      const Duration(seconds: 7),
-      () => Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => LoginScreen(
-            contextPage: context,
-            rebirth: () {},
-            initPage: () {
-              print("davizr");
-              widget.rebirth;
-            },
-          ),
-        ),
-      ),
-    );
-  }
+  // Future<Timer> simulateInitialDataLoading() async {
+  //   return Timer(
+  //     const Duration(seconds: 7),
+  //     () => Navigator.push(
+  //       context,
+  //       MaterialPageRoute(
+  //         builder: (context) => LoginScreen(
+  //           contextPage: context,
+  //           rebirth: () {},
+  //           initPage: () {
+  //             print("davizr");
+  //             widget.rebirth;
+  //           },
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
 
   void init() async {
     final local = await LocalPathStore().visitasImovelOffline;
-    await simulateInitialDataLoading();
+    // await simulateInitialDataLoading();
     if (await local.exists()) {
       // await GlobalsAlerts(context).alertInfoProducao();
     }
