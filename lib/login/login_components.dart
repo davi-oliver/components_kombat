@@ -8,6 +8,7 @@ import 'package:componets_kombat/login/widget/components.dart';
 import 'package:componets_kombat/theme/theme_mode.dart';
 
 class LoginScreen extends StatefulWidget {
+  final BuildContext contextPage;
   final Function()? onTapLogin;
   final Function()? onTapEsqueciSenha;
   final Function()? functionStorePass;
@@ -19,6 +20,7 @@ class LoginScreen extends StatefulWidget {
     required this.onTapEsqueciSenha,
     required this.functionStorePass,
     required this.initPage,
+    required this.contextPage,
   }) : super(key: key);
 
   @override
@@ -39,15 +41,15 @@ class _LoginScreenState extends State<LoginScreen> with ValidTexFields {
 
   final formState = GlobalKey<FormState>();
   @override
-  Widget build(BuildContext context) {
+  Widget build(contextPage) {
     return Scaffold(
       body: SafeArea(
           bottom: true,
           top: false,
           child: Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            color: KThemeModeApp.of(context).primary,
+            height: MediaQuery.of(contextPage).size.height,
+            width: MediaQuery.of(contextPage).size.width,
+            color: KThemeModeApp.of(contextPage).primary,
             child: SingleChildScrollView(
               child: Stack(
                 children: [
@@ -58,22 +60,23 @@ class _LoginScreenState extends State<LoginScreen> with ValidTexFields {
                       children: [
                         Icon(
                           Icons.login,
-                          color: KThemeModeApp.of(context).primaryBackground,
+                          color:
+                              KThemeModeApp.of(contextPage).primaryBackground,
                         ),
                         const SizedBox(width: 15),
                         Text("Login",
-                            style: KThemeModeApp.of(context)
+                            style: KThemeModeApp.of(contextPage)
                                 .titleMedium
                                 .copyWith(
-                                    color: KThemeModeApp.of(context)
+                                    color: KThemeModeApp.of(contextPage)
                                         .primaryBackground)),
                       ],
                     ),
                   ),
                   Center(
                     child: Container(
-                      height: MediaQuery.of(context).size.height * .78,
-                      width: MediaQuery.of(context).size.width * .85,
+                      height: MediaQuery.of(contextPage).size.height * .78,
+                      width: MediaQuery.of(contextPage).size.width * .85,
                       margin: const EdgeInsets.symmetric(vertical: 120),
                       decoration: BoxDecoration(
                           boxShadow: const [
@@ -84,7 +87,8 @@ class _LoginScreenState extends State<LoginScreen> with ValidTexFields {
                                 spreadRadius: 0.5)
                           ],
                           borderRadius: BorderRadius.circular(15),
-                          color: KThemeModeApp.of(context).primaryBackground),
+                          color:
+                              KThemeModeApp.of(contextPage).primaryBackground),
                       child: Column(
                         children: [
                           Container(
@@ -92,7 +96,8 @@ class _LoginScreenState extends State<LoginScreen> with ValidTexFields {
                                 horizontal: 40, vertical: 50),
                             child: Image.asset(
                               "assets/itajuba_contorno.png",
-                              width: MediaQuery.of(context).size.width * .45,
+                              width:
+                                  MediaQuery.of(contextPage).size.width * .45,
                             ),
                           ),
                           Form(
@@ -103,9 +108,10 @@ class _LoginScreenState extends State<LoginScreen> with ValidTexFields {
                                   margin: const EdgeInsets.symmetric(
                                       vertical: 10, horizontal: 25),
                                   height:
-                                      MediaQuery.of(context).size.height * .1,
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.8,
+                                      MediaQuery.of(contextPage).size.height *
+                                          .1,
+                                  width: MediaQuery.of(contextPage).size.width *
+                                      0.8,
                                   child: TextFormField(
                                     onChanged: isNotEmpty,
                                     controller: emailcontroller,
@@ -113,17 +119,19 @@ class _LoginScreenState extends State<LoginScreen> with ValidTexFields {
                                     decoration: InputDecoration(
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
-                                              color: KThemeModeApp.of(context)
-                                                  .primary,
+                                              color:
+                                                  KThemeModeApp.of(contextPage)
+                                                      .primary,
                                               width: 1.0),
                                         ),
                                         labelText: "Login",
-                                        floatingLabelStyle: KThemeModeApp.of(
-                                                context)
-                                            .titleLarge
-                                            .copyWith(
-                                                color: KThemeModeApp.of(context)
-                                                    .primary),
+                                        floatingLabelStyle:
+                                            KThemeModeApp.of(contextPage)
+                                                .titleLarge
+                                                .copyWith(
+                                                    color: KThemeModeApp.of(
+                                                            contextPage)
+                                                        .primary),
                                         labelStyle:
                                             const TextStyle(fontSize: 20),
                                         floatingLabelBehavior:
@@ -138,9 +146,10 @@ class _LoginScreenState extends State<LoginScreen> with ValidTexFields {
                                   margin: const EdgeInsets.symmetric(
                                       vertical: 10, horizontal: 25),
                                   height:
-                                      MediaQuery.of(context).size.height * .1,
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.8,
+                                      MediaQuery.of(contextPage).size.height *
+                                          .1,
+                                  width: MediaQuery.of(contextPage).size.width *
+                                      0.8,
                                   child: TextFormField(
                                     obscureText: visibilityPass,
                                     onChanged: isNotEmpty,
@@ -149,17 +158,19 @@ class _LoginScreenState extends State<LoginScreen> with ValidTexFields {
                                     decoration: InputDecoration(
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
-                                              color: KThemeModeApp.of(context)
-                                                  .primary,
+                                              color:
+                                                  KThemeModeApp.of(contextPage)
+                                                      .primary,
                                               width: 1.0),
                                         ),
                                         labelText: "Senha",
-                                        floatingLabelStyle: KThemeModeApp.of(
-                                                context)
-                                            .titleLarge
-                                            .copyWith(
-                                                color: KThemeModeApp.of(context)
-                                                    .primary),
+                                        floatingLabelStyle:
+                                            KThemeModeApp.of(contextPage)
+                                                .titleLarge
+                                                .copyWith(
+                                                    color: KThemeModeApp.of(
+                                                            contextPage)
+                                                        .primary),
                                         labelStyle:
                                             const TextStyle(fontSize: 20),
                                         floatingLabelBehavior:
@@ -175,7 +186,7 @@ class _LoginScreenState extends State<LoginScreen> with ValidTexFields {
                                             visibilityPass
                                                 ? FontAwesomeIcons.eye
                                                 : FontAwesomeIcons.eyeSlash,
-                                            color: KThemeModeApp.of(context)
+                                            color: KThemeModeApp.of(contextPage)
                                                 .secondaryText,
                                             size: 15,
                                           ),
@@ -196,10 +207,10 @@ class _LoginScreenState extends State<LoginScreen> with ValidTexFields {
                                   onTap: widget.onTapEsqueciSenha,
                                   child: Text(
                                     "Esqueci minha senha",
-                                    style: KThemeModeApp.of(context)
+                                    style: KThemeModeApp.of(contextPage)
                                         .bodySmall
                                         .copyWith(
-                                            color: KThemeModeApp.of(context)
+                                            color: KThemeModeApp.of(contextPage)
                                                 .primary),
                                   ),
                                 )
@@ -211,11 +222,13 @@ class _LoginScreenState extends State<LoginScreen> with ValidTexFields {
                             child: SwitchListTile(
                                 subtitle: Text(
                                   "Selecione para manter senha salva",
-                                  style: KThemeModeApp.of(context).bodySmall,
+                                  style:
+                                      KThemeModeApp.of(contextPage).bodySmall,
                                 ),
                                 title: Text(
                                   "Manter-me conectado",
-                                  style: KThemeModeApp.of(context).bodyMedium,
+                                  style:
+                                      KThemeModeApp.of(contextPage).bodyMedium,
                                 ),
                                 value: _storePass,
                                 onChanged: (value) async {
@@ -237,13 +250,17 @@ class _LoginScreenState extends State<LoginScreen> with ValidTexFields {
                               children: [
                                 KitButton(
                                     width:
-                                        MediaQuery.of(context).size.width * .45,
-                                    height: MediaQuery.of(context).size.height *
-                                        .065,
+                                        MediaQuery.of(contextPage).size.width *
+                                            .45,
+                                    height:
+                                        MediaQuery.of(contextPage).size.height *
+                                            .065,
                                     decorationButton: BoxDecoration(
                                       color: _carregando
-                                          ? KThemeModeApp.of(context).accent4
-                                          : KThemeModeApp.of(context).accent2,
+                                          ? KThemeModeApp.of(contextPage)
+                                              .accent4
+                                          : KThemeModeApp.of(contextPage)
+                                              .accent2,
                                       borderRadius: BorderRadius.circular(5),
                                       boxShadow: const [
                                         BoxShadow(
@@ -260,31 +277,30 @@ class _LoginScreenState extends State<LoginScreen> with ValidTexFields {
                                                   speed: const Duration(
                                                       milliseconds: 100),
                                                   textStyle: KThemeModeApp.of(
-                                                          context)
+                                                          contextPage)
                                                       .headlineMedium
                                                       .copyWith(
-                                                          color:
-                                                              KThemeModeApp.of(
-                                                                      context)
-                                                                  .accent2)),
+                                                          color: KThemeModeApp.of(
+                                                                  contextPage)
+                                                              .accent2)),
                                             ],
                                             isRepeatingAnimation: true,
                                             totalRepeatCount: 3,
                                           )
                                         : Text(
                                             "Entrar",
-                                            style: KThemeModeApp.of(context)
+                                            style: KThemeModeApp.of(contextPage)
                                                 .bodyLarge
                                                 .copyWith(
                                                     color: KThemeModeApp.of(
-                                                            context)
+                                                            contextPage)
                                                         .primaryBtnText),
                                           ),
                                     iconSufix: Icon(
                                       Icons.arrow_forward_ios,
                                       color: _carregando
                                           ? Colors.transparent
-                                          : KThemeModeApp.of(context)
+                                          : KThemeModeApp.of(contextPage)
                                               .primaryBtnText,
                                     ),
                                     onTap: () async {
