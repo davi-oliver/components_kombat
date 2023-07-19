@@ -268,6 +268,10 @@ class GlobalsAlerts {
     ).show();
   }
 
+  alertInfoProducao() {}
+
+  alertFuncionamento(int i) {}
+
   // alertErroConexaoCadastro() {
   //   var alertStyle = AlertStyle(
   //     animationType: AnimationType.fromTop,

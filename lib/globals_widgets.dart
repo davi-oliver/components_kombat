@@ -7,6 +7,35 @@ class GlobalsWidgets {
   BuildContext context;
   GlobalsWidgets(this.context);
 
+// APPBAR GLOBAL
+  Widget appBar(String texto, bool voltar, [bool home = false]) {
+    return Container(
+      margin: EdgeInsets.only(top: 23, left: 23, bottom: 43),
+      child: Row(
+        children: [
+          voltar
+              ? GestureDetector(
+                  child: Image.asset(
+                    "assets/icons/seta_1.png",
+                    width: 25,
+                    height: 25,
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                  })
+              : Container(),
+          SizedBox(width: 15),
+          Text(
+            texto,
+            style: KThemeModeApp.of(context)
+                .bodyLarge
+                .copyWith(color: KThemeModeApp.of(context).secondaryText),
+          ),
+        ],
+      ),
+    );
+  }
+
 // CARREGAMENTO PRINCIPAL
   Widget loadingPrincipal() {
     final spinkit = SpinKitCubeGrid(
@@ -62,3 +91,10 @@ class GlobalsWidgets {
     );
   }
 }
+
+// SOMBRA GLOBAL
+const kDefaultShadow = BoxShadow(
+    color: Colors.black26,
+    offset: Offset(4, 4),
+    blurRadius: 4,
+    spreadRadius: -2);

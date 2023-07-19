@@ -1,7 +1,15 @@
+import 'package:componets_kombat/globals_widgets.dart';
+import 'package:componets_kombat/home/home_page.dart';
+import 'package:componets_kombat/home/store/home_store.dart';
+import 'package:componets_kombat/login/login_components.dart';
 import 'package:componets_kombat/theme/theme_mode.dart';
+import 'package:componets_kombat/widget/alerts/alert.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
+
+import '../../globals_informations.dart';
 
 class HomeVigWidgets {
   BuildContext context;
@@ -29,31 +37,46 @@ class HomeVigWidgets {
           horizontal: MediaQuery.of(context).size.width * 0.12),
       width: MediaQuery.of(context).size.width * 0.76,
       child: Column(children: [
-        _botao(
-          KThemeModeApp.of(context).primary,
-          Icons.analytics_outlined,
-          "PRODUÇÃO DIÁRIA",
-          null,
+        // _botao(KThemeModeApp.of(context).primary, FontAwesomeIcons.treeCity, "MINHAS VISITAS",
+        //     MinhasVisitas()),
+
+        const SizedBox(
+          height: 40,
+        ),
+        // _botao(Color.fromRGBO(51, 69, 226, 1), FontAwesomeIcons.home,
+        //     "CADASTRAR IMÓVEL", FormularioImovelPage()),
+        const SizedBox(
+          height: 40,
         ),
         _botao(
-          KThemeModeApp.of(context).primary,
-          Icons.analytics_outlined,
-          "PRODUÇÃO DIÁRIA",
-          null,
-        ),
-        _botao(
-          KThemeModeApp.of(context).primary,
-          Icons.analytics_outlined,
-          "PRODUÇÃO DIÁRIA",
-          null,
-        ),
-        _botao(
-          KThemeModeApp.of(context).primary,
-          Icons.analytics_outlined,
-          "PRODUÇÃO DIÁRIA",
-          null,
+          KThemeModeApp.of(context).secondary,
+          FontAwesomeIcons.play,
+          "VISITAS",
+          HomeVigPage(
+            rebirth: () {},
+          ),
         ),
         SizedBox(
+          height: 40,
+        ),
+        _botao(
+          KThemeModeApp.of(context).primary,
+          Icons.analytics_outlined,
+          "PRODUÇÃO DIÁRIA",
+          HomeVigPage(
+            rebirth: () {},
+          ),
+        ),
+        const SizedBox(
+          height: 40,
+        ),
+        // _botao(Color.fromRGBO(41, 128, 185, 1), FontAwesomeIcons.chartBar,
+        //     "PRODUÇÃO DIÁRIA", ProducaoDiariaPage()),
+        const SizedBox(
+          height: 40,
+        ),
+
+        const SizedBox(
           height: 120,
         ),
       ]),
@@ -61,6 +84,7 @@ class HomeVigWidgets {
   }
 
   Widget _botao(Color cor, var icone, String texto, var navi) {
+    final homevigStore = Provider.of<HomeVigStore>(context, listen: false);
     return Observer(builder: (_) {
       return GestureDetector(
           child: Container(
@@ -68,6 +92,7 @@ class HomeVigWidgets {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(7)),
               color: KThemeModeApp.of(context).primaryBackground,
+              boxShadow: const [kDefaultShadow],
             ),
             width: MediaQuery.of(context).size.width * 0.8,
             child: Row(children: [
@@ -96,8 +121,11 @@ class HomeVigWidgets {
             ]),
           ),
           onTap: () async {
+            homevigStore.setLoading(true);
+
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => navi));
+            homevigStore.setLoading(false);
           });
     });
   }
@@ -109,6 +137,7 @@ class HomeVigWidgets {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(7)),
             color: KThemeModeApp.of(context).primaryBackground,
+            boxShadow: const [kDefaultShadow],
           ),
           width: MediaQuery.of(context).size.width * 0.8,
           child: Row(children: [
@@ -136,7 +165,7 @@ class HomeVigWidgets {
           ]),
         ),
         onTap: () async {
-          // await GlobalsAlerts(context).alertFuncionamento(1);
+          await GlobalsAlerts(context).alertFuncionamento(1);
 
           // Navigator.push(
           //     context, MaterialPageRoute(builder: (context) => navi));
@@ -154,7 +183,7 @@ class AppBarHomePage extends StatefulWidget {
 class _AppBarHomePageState extends State<AppBarHomePage> {
   @override
   Widget build(BuildContext context) {
-    // final userInfos = Provider.of<GlobalUserInfos>(context, listen: false);
+    final userInfos = Provider.of<GlobalUserInfos>(context, listen: false);
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
@@ -167,9 +196,9 @@ class _AppBarHomePageState extends State<AppBarHomePage> {
                     color: KThemeModeApp.of(context).secondaryText,
                     width: 1.0,
                   ),
-                  offset: Offset(16, 50),
+                  offset: const Offset(16, 50),
                   child: Container(
-                      margin: EdgeInsets.only(left: 10),
+                      margin: const EdgeInsets.only(left: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
@@ -178,20 +207,19 @@ class _AppBarHomePageState extends State<AppBarHomePage> {
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 Text(
-                                  // "${userInfos.displayName}",
-                                  "Nome do Agente",
+                                  "${userInfos.displayName}",
                                   style: KThemeModeApp.of(context).titleMedium,
                                 ),
                                 Text("Agente de Combate",
                                     style: KThemeModeApp.of(context).bodySmall),
                               ]),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           CircleAvatar(
                             radius: 25,
                             backgroundImage: NetworkImage(
-                                "https://ui-avatars.com/api/?name=Nome do Agente"),
+                                "https://ui-avatars.com/api/?name=${userInfos.email}"),
                             backgroundColor: Colors.transparent,
                           ),
                         ],
@@ -227,6 +255,14 @@ class _AppBarHomePageState extends State<AppBarHomePage> {
                         PopupMenuItem(
                             onTap: () async {
                               // await FirebaseAuth.instance.signOut();
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => LoginScreen(
+                                            contextPage: context,
+                                            initPage: () {},
+                                            rebirth: () {},
+                                          )));
                             },
                             value: 2,
                             child: Row(
@@ -240,7 +276,7 @@ class _AppBarHomePageState extends State<AppBarHomePage> {
                                           color: KThemeModeApp.of(context)
                                               .secondaryText),
                                 ),
-                                SizedBox(width: 45),
+                                const SizedBox(width: 45),
                                 Icon(FontAwesomeIcons.signOutAlt,
                                     color: KThemeModeApp.of(context)
                                         .secondaryText),
