@@ -1,8 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:componets_kombat/login/login_components.dart'
     as componets_kombat_ui;
+import 'package:componets_kombat/formulario_imovel/store/formulario_imovel_store.dart'
+    as componets_kombat_formulario_store;
+import 'package:componets_kombat/globals_informations.dart'
+    as componets_kombat_globals_informations;
+import 'package:componets_kombat/inicia_visita_store/inicia_visita_store.dart'
+    as componets_kombat_inicia_visita_store;
+import 'package:componets_kombat/formulario_questoes_visita/store/forumario_questoes_visita_store.dart'
+    as componets_kombat_formulario_questoes_visita_store;
+import 'package:componets_kombat/detalhes_imovel/valida_qrcode/store/valida_qrcode_store.dart'
+    as componets_kombat_valida_qrcode_store;
+import 'package:componets_kombat/home/store/home_store.dart'
+    as componets_kombat_home_store;
+import 'package:componets_kombat/view_model/view_model_store.dart'
+    as componets_kombat_view_model_store;
+import 'package:componets_kombat/local_visitas/store/local_visitas_store.dart'
+    as components_kombat_local_visitas_store;
 
 import 'package:flutter_phoenix/flutter_phoenix.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(Phoenix(child: MyApp()));
@@ -80,12 +97,51 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return componets_kombat_ui.LoginScreen(
-      rebirth: !mounted ? Phoenix.rebirth(context) : () {},
-      contextPage: context,
-      initPage: () {
-        print("davizr rebirth");
-      },
+    return MultiProvider(
+      providers: [
+        //++++++++++++++++++++++ ORDENAÇÃO ALFABÉTICA ++++++++++++++++++++
+
+        //FUNCTIONS
+
+        //STORE
+
+        Provider<componets_kombat_valida_qrcode_store.ValidaQrCodeStore>(
+            create: (_) =>
+                componets_kombat_valida_qrcode_store.ValidaQrCodeStore()),
+        Provider<
+                componets_kombat_formulario_questoes_visita_store
+                    .FormularioQuestoesVisitaStore>(
+            create: (_) => componets_kombat_formulario_questoes_visita_store
+                .FormularioQuestoesVisitaStore()),
+
+        Provider<componets_kombat_formulario_store.FormularioImovelStore>(
+            create: (_) =>
+                componets_kombat_formulario_store.FormularioImovelStore()),
+        Provider<componets_kombat_inicia_visita_store.IniciaVisitaStore>(
+            create: (_) =>
+                componets_kombat_inicia_visita_store.IniciaVisitaStore()),
+        Provider<componets_kombat_home_store.HomeVigStore>(
+            create: (_) => componets_kombat_home_store.HomeVigStore()),
+        // Provider<AnalyticsService>(create: (_) => AnalyticsService()),
+        Provider<componets_kombat_globals_informations.GlobalUserInfos>(
+            create: (_) =>
+                componets_kombat_globals_informations.GlobalUserInfos()),
+        Provider<components_kombat_local_visitas_store.LocalVisitasStore>(
+            create: (_) =>
+                components_kombat_local_visitas_store.LocalVisitasStore()),
+        // Provider<ProducaoDiariaStore>(create: (_) => ProducaoDiariaStore()),
+        Provider<componets_kombat_view_model_store.ViewModelStore>(
+            create: (_) => componets_kombat_view_model_store.ViewModelStore()),
+      ],
+      child: MaterialApp(
+        home: componets_kombat_ui.LoginScreen(
+          rebirth: !mounted ? Phoenix.rebirth(context) : () {},
+          contextPage: context,
+          initPage: () {
+            print("davizr rebirth");
+          },
+        ),
+      ),
     );
   }
 }

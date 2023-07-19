@@ -126,10 +126,10 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: e904d4d2708f04c57c52ba3c871bdcf3ed38403e
+      resolved-ref: dc6f054022f0561aa419bed0524979981f5d0c20
       url: "https://github.com/davi-oliver/components_kombat"
     source: git
-    version: "0.0.8"
+    version: "0.0.9"
   connectivity:
     dependency: transitive
     description:
@@ -690,7 +690,7 @@ packages:
     source: hosted
     version: "1.5.1"
   provider:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: provider
       sha256: cdbe7530b12ecd9eb455bdaa2fcb8d4dad22e80b8afb4798b41479d5ce26847f
