@@ -7,7 +7,7 @@ import 'package:componets_kombat/login/func/functions.dart';
 import 'package:componets_kombat/login/widget/components.dart';
 import 'package:componets_kombat/theme/theme_mode.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreenComponets extends StatefulWidget {
   final BuildContext contextPage;
   final String? tituloTopoLogin;
   final String? pathStringImageAsset;
@@ -19,7 +19,7 @@ class LoginScreen extends StatefulWidget {
   final Function()? onTapSalvarSenha;
 
   // ignore: prefer_const_constructors_in_immutables
-  LoginScreen({
+  LoginScreenComponets({
     Key? key,
     required this.contextPage,
     required this.initPage,
@@ -33,10 +33,11 @@ class LoginScreen extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<LoginScreenComponets> createState() => _LoginScreenComponetsState();
 }
 
-class _LoginScreenState extends State<LoginScreen> with ValidTexFields {
+class _LoginScreenComponetsState extends State<LoginScreenComponets>
+    with ValidTexFields {
   bool _carregando = false;
   bool _storePass = false;
   bool visibilityPass = true;
