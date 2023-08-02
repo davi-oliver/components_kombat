@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:componets_kombat/login/login_components.dart'
+import 'package:componets_kombat/login/login_view_componet.dart'
     as componets_kombat_ui;
 import 'package:componets_kombat/formulario_imovel/store/formulario_imovel_store.dart'
     as componets_kombat_formulario_store;
@@ -134,12 +134,18 @@ class _MyHomePageState extends State<MyHomePage> {
             create: (_) => componets_kombat_view_model_store.ViewModelStore()),
       ],
       child: MaterialApp(
-        home: componets_kombat_ui.LoginScreen(
-          rebirth: !mounted ? Phoenix.rebirth(context) : () {},
+        home: componets_kombat_ui.LoginScreenComponets(
           contextPage: context,
-          initPage: () {
-            print("davizr rebirth");
+          initPage: () {},
+          labelTextCampoLogin: "CPF",
+          labelTextCampoSenha: "Senha",
+          onTapEntrar: () async {
+            await Future.delayed(Duration(seconds: 6));
           },
+          onTapSalvarSenha: () {},
+          pathStringImageAsset: "assets/images/itajuba_contorno.png",
+          textoBotaoEntrar: "Entrar",
+          tituloTopoLogin: "Login",
         ),
       ),
     );

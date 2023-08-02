@@ -14,6 +14,8 @@ class LoginScreenComponets extends StatefulWidget {
   final String? labelTextCampoLogin;
   final String? labelTextCampoSenha;
   final String? textoBotaoEntrar;
+  final TextEditingController? controllerLogin;
+  final TextEditingController? controllerSenha;
   final Function()? onTapEntrar;
   final Function()? initPage;
   final Function()? onTapSalvarSenha;
@@ -22,13 +24,15 @@ class LoginScreenComponets extends StatefulWidget {
   LoginScreenComponets({
     Key? key,
     required this.contextPage,
-    required this.initPage,
     required this.tituloTopoLogin,
     required this.pathStringImageAsset,
     required this.labelTextCampoLogin,
     required this.labelTextCampoSenha,
     required this.textoBotaoEntrar,
+    required this.controllerLogin,
+    required this.controllerSenha,
     required this.onTapEntrar,
+    required this.initPage,
     required this.onTapSalvarSenha,
   }) : super(key: key);
 
@@ -124,7 +128,7 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                       0.8,
                                   child: TextFormField(
                                     onChanged: isNotEmpty,
-                                    controller: emailcontroller,
+                                    controller: widget.controllerLogin!,
                                     keyboardType: TextInputType.number,
                                     decoration: InputDecoration(
                                         focusedBorder: OutlineInputBorder(
@@ -163,7 +167,7 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                   child: TextFormField(
                                     obscureText: visibilityPass,
                                     onChanged: isNotEmpty,
-                                    controller: senhacontroller,
+                                    controller: widget.controllerSenha!,
                                     keyboardType: TextInputType.visiblePassword,
                                     decoration: InputDecoration(
                                         focusedBorder: OutlineInputBorder(
@@ -246,8 +250,8 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                     _storePass = !_storePass;
                                   });
                                   if (_storePass &&
-                                      emailcontroller.text.isNotEmpty &&
-                                      senhacontroller.text.isNotEmpty) {
+                                      widget.controllerLogin!.text.isNotEmpty &&
+                                      widget.controllerSenha!.text.isNotEmpty) {
                                     widget.onTapSalvarSenha!();
                                   }
                                 }),
