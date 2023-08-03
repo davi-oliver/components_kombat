@@ -1,6 +1,6 @@
 name: componets_kombat
 description: A new Flutter package project.
-version: 0.0.12
+version: 0.0.13
 homepage:
 
 environment:
@@ -51,7 +51,7 @@ dependencies:
   internet_connection_checker: ^1.0.0+1  
   google_fonts: ^4.0.4
   animated_text_kit: ^4.2.2
-  intl: ^0.17.0
+  intl: ^0.18.0
   
  
 

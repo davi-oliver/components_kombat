@@ -77,6 +77,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int counter = 0;
+  TextEditingController controllerLogin = TextEditingController();
+  TextEditingController controllerSenha = TextEditingController();
 
   void _incrementCounter() {
     setState(() {
@@ -139,11 +141,13 @@ class _MyHomePageState extends State<MyHomePage> {
           initPage: () {},
           labelTextCampoLogin: "CPF",
           labelTextCampoSenha: "Senha",
+          controllerLogin: controllerLogin,
+          controllerSenha: controllerSenha,
           onTapEntrar: () async {
             await Future.delayed(Duration(seconds: 6));
           },
           onTapSalvarSenha: () {},
-          pathStringImageAsset: "assets/images/itajuba_contorno.png",
+          pathStringImageAsset: "assets/itajuba_contorno.png",
           textoBotaoEntrar: "Entrar",
           tituloTopoLogin: "Login",
         ),

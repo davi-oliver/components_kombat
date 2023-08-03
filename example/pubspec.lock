@@ -126,10 +126,10 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: ac2936b863cf483894860970196547f73235c6ab
+      resolved-ref: "7c4df4cb7dc7ca96f07c6b54ef066ae50b87d953"
       url: "https://github.com/davi-oliver/components_kombat"
     source: git
-    version: "0.0.11"
+    version: "0.0.12"
   connectivity:
     dependency: transitive
     description:

@@ -3,7 +3,6 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'package:componets_kombat/login/func/functions.dart';
 import 'package:componets_kombat/login/widget/components.dart';
 import 'package:componets_kombat/theme/theme_mode.dart';
 
