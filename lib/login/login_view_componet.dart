@@ -83,7 +83,7 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                       children: [
                         Container(
                           margin: const EdgeInsets.only(
-                              top: 30, left: 23, bottom: 43),
+                              top: 60, left: 23, bottom: 43),
                           child: Row(
                             children: [
                               Icon(
