@@ -138,18 +138,6 @@ class _MyHomePageState extends State<MyHomePage> {
       child: MaterialApp(
         home: componets_kombat_ui.LoginScreenComponets(
           contextPage: context,
-          initPage: () {},
-          labelTextCampoLogin: "CPF",
-          labelTextCampoSenha: "Senha",
-          controllerLogin: controllerLogin,
-          controllerSenha: controllerSenha,
-          onTapEntrar: () async {
-            await Future.delayed(Duration(seconds: 6));
-          },
-          onTapSalvarSenha: () {},
-          pathStringImageAsset: "assets/itajuba_contorno.png",
-          textoBotaoEntrar: "Entrar",
-          tituloTopoLogin: "Login",
         ),
       ),
     );
