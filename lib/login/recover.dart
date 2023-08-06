@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:componets_kombat/login/widget/components.dart';
 import 'package:componets_kombat/theme/theme_mode.dart';
 
-class LoginScreenComponets extends StatefulWidget {
+class RecuperarLoginPageComponents extends StatefulWidget {
   final BuildContext contextPage;
   final String? tituloTopoLogin;
   final String? pathStringImageAsset;
@@ -17,7 +17,7 @@ class LoginScreenComponets extends StatefulWidget {
   final Function()? onTapRecuperarSenha;
 
   // ignore: prefer_const_constructors_in_immutables
-  LoginScreenComponets({
+  RecuperarLoginPageComponents({
     Key? key,
     required this.contextPage,
     this.tituloTopoLogin,
@@ -31,11 +31,12 @@ class LoginScreenComponets extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<LoginScreenComponets> createState() => _LoginScreenComponetsState();
+  State<RecuperarLoginPageComponents> createState() =>
+      _RecuperarLoginPageComponentsState();
 }
 
-class _LoginScreenComponetsState extends State<LoginScreenComponets>
-    with ValidTexFields {
+class _RecuperarLoginPageComponentsState
+    extends State<RecuperarLoginPageComponents> with ValidTexFields {
   bool _carregando = false;
 
   bool visibilityPass = true;
