@@ -122,7 +122,14 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                               children: [
                                 widget.pathStringImageAsset == null ||
                                         widget.pathStringImageAsset == ""
-                                    ? Container()
+                                    ? Container(
+                                        height: MediaQuery.of(contextPage)
+                                                .size
+                                                .height *
+                                            .25,
+                                        margin: const EdgeInsets.symmetric(
+                                            horizontal: 40, vertical: 50),
+                                      )
                                     : Container(
                                         margin: const EdgeInsets.symmetric(
                                             horizontal: 40, vertical: 50),
