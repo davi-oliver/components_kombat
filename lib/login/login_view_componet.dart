@@ -335,7 +335,8 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                                     .primaryBtnText,
                                           ),
                                           onTap: () async {
-                                            widget.onTapEntrar ?? () {};
+                                            await widget.onTapEntrar!() ??
+                                                () {};
                                           }),
                                     ],
                                   ),
