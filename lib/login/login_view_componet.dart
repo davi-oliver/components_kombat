@@ -126,7 +126,7 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                         height: MediaQuery.of(contextPage)
                                                 .size
                                                 .height *
-                                            .25,
+                                            .15,
                                         margin: const EdgeInsets.symmetric(
                                             horizontal: 40, vertical: 50),
                                       )
