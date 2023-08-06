@@ -264,8 +264,8 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                   child: Row(
                                     children: [
                                       GestureDetector(
-                                        onTap:
-                                            widget.onTapEsqueciSenha ?? () {},
+                                        onTap: widget.onTapEsqueciSenha!() ??
+                                            () {},
                                         child: Text(
                                           "Esqueci minha senha",
                                           style: KThemeModeApp.of(contextPage)
