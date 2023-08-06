@@ -16,6 +16,7 @@ class LoginScreenComponets extends StatefulWidget {
   final bool? loading;
   final TextEditingController? controllerLogin;
   final TextEditingController? controllerSenha;
+  final Widget? widgetLoading;
   final Function()? onTapEntrar;
   final Function()? initPage;
   final Function()? onTapSalvarSenha;
@@ -26,6 +27,7 @@ class LoginScreenComponets extends StatefulWidget {
     Key? key,
     required this.contextPage,
     this.tituloTopoLogin,
+    this.widgetLoading,
     this.loading,
     this.pathStringImageAsset,
     this.labelTextCampoLogin,
@@ -66,11 +68,12 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
           bottom: true,
           top: false,
           child: widget.loading ?? _carregando
-              ? Center(
-                  child: CircularProgressIndicator(
-                    color: KThemeModeApp.of(contextPage).primary,
-                  ),
-                )
+              ? widget.widgetLoading ??
+                  Center(
+                    child: CircularProgressIndicator(
+                      color: KThemeModeApp.of(contextPage).primary,
+                    ),
+                  )
               : Container(
                   height: MediaQuery.of(contextPage).size.height,
                   width: MediaQuery.of(contextPage).size.width,
