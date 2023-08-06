@@ -1,6 +1,6 @@
 name: componets_kombat
 description: A new Flutter package project.
-version: 0.0.13
+version: 0.0.14
 homepage:
 
 environment:
@@ -72,6 +72,8 @@ flutter:
   # To add assets to your package, add an assets section, like this:
   assets:
      - assets/
+     - assets/itajuba_contorno.png
+
      - assets/login/
      - assets/alerts/
      - assets/icons/

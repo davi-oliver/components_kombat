@@ -18,6 +18,7 @@ class LoginScreenComponets extends StatefulWidget {
   final Function()? onTapEntrar;
   final Function()? initPage;
   final Function()? onTapSalvarSenha;
+  final Function()? onTapEsqueciSenha;
 
   // ignore: prefer_const_constructors_in_immutables
   LoginScreenComponets({
@@ -32,6 +33,7 @@ class LoginScreenComponets extends StatefulWidget {
     required this.controllerSenha,
     required this.onTapEntrar,
     required this.initPage,
+    required this.onTapEsqueciSenha,
     required this.onTapSalvarSenha,
   }) : super(key: key);
 
@@ -44,6 +46,8 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
   bool _carregando = false;
   bool _storePass = false;
   bool visibilityPass = true;
+  TextEditingController controllerLogin = TextEditingController();
+  TextEditingController controllerSenha = TextEditingController();
 
   @override
   void initState() {
@@ -77,7 +81,7 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                               KThemeModeApp.of(contextPage).primaryBackground,
                         ),
                         const SizedBox(width: 15),
-                        Text(widget.tituloTopoLogin!,
+                        Text(widget.tituloTopoLogin ?? "Login",
                             style: KThemeModeApp.of(contextPage)
                                 .titleMedium
                                 .copyWith(
@@ -108,7 +112,8 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                             margin: const EdgeInsets.symmetric(
                                 horizontal: 40, vertical: 50),
                             child: Image.asset(
-                              widget.pathStringImageAsset!,
+                              widget.pathStringImageAsset ??
+                                  "assets/itajuba_contorno.png",
                               width:
                                   MediaQuery.of(contextPage).size.width * .45,
                             ),
@@ -127,7 +132,8 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                       0.8,
                                   child: TextFormField(
                                     onChanged: isNotEmpty,
-                                    controller: widget.controllerLogin!,
+                                    controller: widget.controllerLogin ??
+                                        controllerLogin,
                                     keyboardType: TextInputType.number,
                                     decoration: InputDecoration(
                                         focusedBorder: OutlineInputBorder(
@@ -137,7 +143,8 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                                       .primary,
                                               width: 1.0),
                                         ),
-                                        labelText: widget.labelTextCampoLogin!,
+                                        labelText: widget.labelTextCampoLogin ??
+                                            "Login",
                                         floatingLabelStyle:
                                             KThemeModeApp.of(contextPage)
                                                 .titleLarge
@@ -166,7 +173,8 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                   child: TextFormField(
                                     obscureText: visibilityPass,
                                     onChanged: isNotEmpty,
-                                    controller: widget.controllerSenha!,
+                                    controller: widget.controllerSenha ??
+                                        controllerSenha,
                                     keyboardType: TextInputType.visiblePassword,
                                     decoration: InputDecoration(
                                         focusedBorder: OutlineInputBorder(
@@ -176,7 +184,8 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                                       .primary,
                                               width: 1.0),
                                         ),
-                                        labelText: widget.labelTextCampoSenha!,
+                                        labelText: widget.labelTextCampoSenha ??
+                                            "Senha",
                                         floatingLabelStyle:
                                             KThemeModeApp.of(contextPage)
                                                 .titleLarge
@@ -217,7 +226,7 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                             child: Row(
                               children: [
                                 GestureDetector(
-                                  onTap: () {},
+                                  onTap: widget.onTapEsqueciSenha ?? () {},
                                   child: Text(
                                     "Esqueci minha senha",
                                     style: KThemeModeApp.of(contextPage)
@@ -251,7 +260,7 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                   if (_storePass &&
                                       widget.controllerLogin!.text.isNotEmpty &&
                                       widget.controllerSenha!.text.isNotEmpty) {
-                                    widget.onTapSalvarSenha!();
+                                    widget.onTapSalvarSenha ?? () {};
                                   }
                                 }),
                           ),
@@ -301,7 +310,7 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                             totalRepeatCount: 3,
                                           )
                                         : Text(
-                                            widget.textoBotaoEntrar!,
+                                            widget.textoBotaoEntrar ?? "Entrar",
                                             style: KThemeModeApp.of(contextPage)
                                                 .bodyLarge
                                                 .copyWith(
@@ -324,7 +333,7 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                       });
 
                                       if (formState.currentState!.validate()) {
-                                        await widget.onTapEntrar!();
+                                        widget.onTapEntrar ?? () {};
                                       } else {
                                         setState(() {
                                           _carregando = false;
