@@ -4,7 +4,7 @@ import 'package:componets_kombat/formulario_imovel/store/formulario_imovel_store
 import 'package:componets_kombat/inicia_visita_store/inicia_visita_store.dart';
 import 'package:componets_kombat/repositores/datasource/get.dart';
 import 'package:componets_kombat/widget/alerts/alert.dart';
-import 'package:connectivity/connectivity.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:provider/provider.dart';
@@ -16,14 +16,15 @@ class GlobalsFunctions {
   GlobalsFunctions(this.context);
 // VERIFICA CONEXÃO COM A INTERNET
   Future<bool> verificaInternet() async {
-    var connectivityResult = await (Connectivity().checkConnectivity());
-    if (connectivityResult == ConnectivityResult.none) {
-      // nao tem conexao
-      return true;
-    } else {
-      // tem conexao
-      return false;
-    }
+    // var connectivityResult = await (Connectivity().checkConnectivity());
+    // if (connectivityResult == ConnectivityResult.none) {
+    //   // nao tem conexao
+    //   return true;
+    // } else {
+    //   // tem conexao
+    //   return false;
+    // }
+    return false;
   }
 
   // SECANEIA QR CODE
