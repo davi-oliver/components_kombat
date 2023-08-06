@@ -63,24 +63,30 @@ class _RecuperarLoginPageComponentsState
                   child: SingleChildScrollView(
                     child: Stack(
                       children: [
-                        Container(
-                          margin: const EdgeInsets.only(
-                              top: 30, left: 23, bottom: 43),
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.login,
-                                color: KThemeModeApp.of(contextPage)
-                                    .primaryBackground,
-                              ),
-                              const SizedBox(width: 15),
-                              Text(widget.tituloTopoLogin ?? "Recuperar Senha",
-                                  style: KThemeModeApp.of(contextPage)
-                                      .titleMedium
-                                      .copyWith(
-                                          color: KThemeModeApp.of(contextPage)
-                                              .primaryBackground)),
-                            ],
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pop(contextPage);
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.only(
+                                top: 60, left: 23, bottom: 43),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.arrow_back_ios,
+                                  color: KThemeModeApp.of(contextPage)
+                                      .primaryBackground,
+                                ),
+                                const SizedBox(width: 15),
+                                Text(
+                                    widget.tituloTopoLogin ?? "Recuperar Senha",
+                                    style: KThemeModeApp.of(contextPage)
+                                        .titleMedium
+                                        .copyWith(
+                                            color: KThemeModeApp.of(contextPage)
+                                                .primaryBackground)),
+                              ],
+                            ),
                           ),
                         ),
                         Center(
