@@ -52,7 +52,7 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
 
   @override
   void initState() {
-    widget.initPage!();
+    widget.initPage ?? () {};
 
     super.initState();
   }
