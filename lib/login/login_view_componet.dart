@@ -66,8 +66,10 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
           bottom: true,
           top: false,
           child: widget.loading ?? _carregando
-              ? CircularProgressIndicator(
-                  color: KThemeModeApp.of(contextPage).primary,
+              ? Center(
+                  child: CircularProgressIndicator(
+                    color: KThemeModeApp.of(contextPage).primary,
+                  ),
                 )
               : Container(
                   height: MediaQuery.of(contextPage).size.height,
