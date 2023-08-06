@@ -120,17 +120,20 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                     .primaryBackground),
                             child: Column(
                               children: [
-                                Container(
-                                  margin: const EdgeInsets.symmetric(
-                                      horizontal: 40, vertical: 50),
-                                  child: Image.asset(
-                                    widget.pathStringImageAsset ??
-                                        "assets/itajuba_contorno.png",
-                                    width:
-                                        MediaQuery.of(contextPage).size.width *
-                                            .45,
-                                  ),
-                                ),
+                                widget.pathStringImageAsset == null ||
+                                        widget.pathStringImageAsset == ""
+                                    ? Container()
+                                    : Container(
+                                        margin: const EdgeInsets.symmetric(
+                                            horizontal: 40, vertical: 50),
+                                        child: Image.asset(
+                                          widget.pathStringImageAsset!,
+                                          width: MediaQuery.of(contextPage)
+                                                  .size
+                                                  .width *
+                                              .45,
+                                        ),
+                                      ),
                                 Form(
                                   key: formState,
                                   child: Column(
