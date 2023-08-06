@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:js_interop';
+
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -24,17 +26,17 @@ class LoginScreenComponets extends StatefulWidget {
   LoginScreenComponets({
     Key? key,
     required this.contextPage,
-    required this.tituloTopoLogin,
-    required this.pathStringImageAsset,
-    required this.labelTextCampoLogin,
-    required this.labelTextCampoSenha,
-    required this.textoBotaoEntrar,
-    required this.controllerLogin,
-    required this.controllerSenha,
-    required this.onTapEntrar,
-    required this.initPage,
-    required this.onTapEsqueciSenha,
-    required this.onTapSalvarSenha,
+    this.tituloTopoLogin,
+    this.pathStringImageAsset,
+    this.labelTextCampoLogin,
+    this.labelTextCampoSenha,
+    this.textoBotaoEntrar,
+    this.controllerLogin,
+    this.controllerSenha,
+    this.onTapEntrar,
+    this.initPage,
+    this.onTapEsqueciSenha,
+    this.onTapSalvarSenha,
   }) : super(key: key);
 
   @override
@@ -257,11 +259,8 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                   setState(() {
                                     _storePass = !_storePass;
                                   });
-                                  if (_storePass &&
-                                      widget.controllerLogin!.text.isNotEmpty &&
-                                      widget.controllerSenha!.text.isNotEmpty) {
-                                    widget.onTapSalvarSenha ?? () {};
-                                  }
+
+                                  widget.onTapSalvarSenha ?? () {};
                                 }),
                           ),
                           Container(
