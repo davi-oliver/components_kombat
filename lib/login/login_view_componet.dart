@@ -324,24 +324,20 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                               .primaryBtnText,
                                     ),
                                     onTap: () async {
-                                      bool click = false;
-                                      setState(() {
-                                        _carregando = true;
-                                        click = !click;
-                                      });
-
-                                      if (formState.currentState!.validate()) {
-                                        widget.onTapEntrar ?? () {};
-                                      } else {
-                                        setState(() {
-                                          _carregando = false;
-                                          click = false;
-                                        });
-                                      }
-                                      setState(() {
-                                        _carregando = false;
-                                        click = false;
-                                      });
+                                      widget.onTapEntrar ??
+                                          () async {
+                                            bool click = false;
+                                            setState(() {
+                                              _carregando = true;
+                                              click = !click;
+                                            });
+                                            await Future.delayed(
+                                                const Duration(seconds: 3));
+                                            setState(() {
+                                              _carregando = false;
+                                              click = false;
+                                            });
+                                          };
                                     }),
                               ],
                             ),
