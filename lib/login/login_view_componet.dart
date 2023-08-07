@@ -21,6 +21,8 @@ class LoginScreenComponets extends StatefulWidget {
   final Function()? initPage;
   final Function()? onTapSalvarSenha;
   final Function()? onTapEsqueciSenha;
+  final double? heightCardLogin;
+  final double? widthCardLogin;
 
   // ignore: prefer_const_constructors_in_immutables
   LoginScreenComponets({
@@ -39,6 +41,8 @@ class LoginScreenComponets extends StatefulWidget {
     this.initPage,
     this.onTapEsqueciSenha,
     this.onTapSalvarSenha,
+    this.heightCardLogin,
+    this.widthCardLogin,
   }) : super(key: key);
 
   @override
@@ -92,28 +96,32 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                     .primaryBackground,
                               ),
                               const SizedBox(width: 15),
-                              Text(widget.tituloTopoLogin ?? "Login",
-                                  style: KThemeModeApp.of(contextPage)
-                                      .titleMedium
-                                      .copyWith(
-                                          color: KThemeModeApp.of(contextPage)
-                                              .primaryBackground)),
+                              Text(
+                                widget.tituloTopoLogin ?? "Login",
+                                style: KThemeModeApp.of(contextPage)
+                                    .titleMedium
+                                    .copyWith(
+                                        color: KThemeModeApp.of(contextPage)
+                                            .primaryBackground),
+                              ),
                             ],
                           ),
                         ),
                         Center(
                           child: Container(
-                            height:
+                            height: widget.heightCardLogin ??
                                 MediaQuery.of(contextPage).size.height * .78,
-                            width: MediaQuery.of(contextPage).size.width * .85,
+                            width: widget.widthCardLogin ??
+                                MediaQuery.of(contextPage).size.width * .85,
                             margin: const EdgeInsets.symmetric(vertical: 120),
                             decoration: BoxDecoration(
                                 boxShadow: const [
                                   BoxShadow(
-                                      color: Colors.black12,
-                                      offset: Offset(3, 4),
-                                      blurRadius: 0.5,
-                                      spreadRadius: 0.5)
+                                    color: Colors.black12,
+                                    offset: Offset(3, 4),
+                                    blurRadius: 0.5,
+                                    spreadRadius: 0.5,
+                                  ),
                                 ],
                                 borderRadius: BorderRadius.circular(15),
                                 color: KThemeModeApp.of(contextPage)
