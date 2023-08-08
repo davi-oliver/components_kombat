@@ -168,7 +168,8 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                           onChanged: isNotEmpty,
                                           controller: widget.controllerLogin ??
                                               controllerLogin,
-                                          keyboardType: TextInputType.number,
+                                          keyboardType:
+                                              TextInputType.emailAddress,
                                           decoration: InputDecoration(
                                               focusedBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
