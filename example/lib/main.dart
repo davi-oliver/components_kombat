@@ -32,6 +32,8 @@ class _MyHomePageState extends State<MyHomePage> {
         labelTextCampoLogin: "Login",
         labelTextCampoSenha: "Senha",
         textoBotaoEntrar: "Entrar",
+        containCriarLogin: true,
+        heightCardLogin: MediaQuery.of(context).size.height,
         onTapEntrar: () async {
           setState(() {
             loading = true;

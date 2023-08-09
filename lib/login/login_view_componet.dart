@@ -371,7 +371,8 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                   ),
                                 ),
                                 SizedBox(
-                                  height: MediaQuery.of(context).size.height,
+                                  height:
+                                      MediaQuery.of(context).size.height * .1,
                                 ),
                                 widget.containCriarLogin
                                     ? Container(
