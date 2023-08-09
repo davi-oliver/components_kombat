@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:componets_kombat/login/login_view_componet.dart'
     as componets_kombat_ui;
 
-import 'package:flutter_phoenix/flutter_phoenix.dart';
-
 void main() {
   runApp(MyHomePage());
 }
