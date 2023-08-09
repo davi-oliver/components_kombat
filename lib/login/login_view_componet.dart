@@ -23,6 +23,9 @@ class LoginScreenComponets extends StatefulWidget {
   final Function()? onTapEsqueciSenha;
   final double? heightCardLogin;
   final double? widthCardLogin;
+  final Function()? onTapCriarConta;
+
+  final bool containCriarLogin;
 
   // ignore: prefer_const_constructors_in_immutables
   LoginScreenComponets({
@@ -43,6 +46,8 @@ class LoginScreenComponets extends StatefulWidget {
     this.onTapSalvarSenha,
     this.heightCardLogin,
     this.widthCardLogin,
+    this.containCriarLogin = false,
+    this.onTapCriarConta,
   }) : super(key: key);
 
   @override
@@ -365,6 +370,46 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                     ],
                                   ),
                                 ),
+                                SizedBox(
+                                  height: MediaQuery.of(context).size.height,
+                                ),
+                                widget.containCriarLogin
+                                    ? Container(
+                                        margin: const EdgeInsets.symmetric(
+                                            horizontal: 20, vertical: 15),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              "Não tem uma conta?",
+                                              style: KThemeModeApp.of(
+                                                      contextPage)
+                                                  .bodyMedium
+                                                  .copyWith(
+                                                      color: KThemeModeApp.of(
+                                                              contextPage)
+                                                          .primary),
+                                            ),
+                                            GestureDetector(
+                                              onTap: () {
+                                                widget.onTapCriarConta!();
+                                              },
+                                              child: Text(
+                                                " Criar conta",
+                                                style: KThemeModeApp.of(
+                                                        contextPage)
+                                                    .bodyMedium
+                                                    .copyWith(
+                                                        color: KThemeModeApp.of(
+                                                                contextPage)
+                                                            .primary),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      )
+                                    : Container(),
                               ],
                             ),
                           ),
