@@ -370,30 +370,36 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                     ],
                                   ),
                                 ),
-                                Divider(
-                                  color: KThemeModeApp.of(contextPage)
-                                      .secondaryText,
-                                  thickness: 1,
-                                  indent: 20,
-                                  endIndent: 20,
-                                ),
-                                Text(
-                                  "Ou entre com",
-                                  style: KThemeModeApp.of(context).bodyMedium,
-                                ),
-                                Divider(
-                                  color: KThemeModeApp.of(contextPage)
-                                      .secondaryText,
-                                  thickness: 1,
-                                  indent: 20,
-                                  endIndent: 20,
+                                Row(
+                                  children: [
+                                    Divider(
+                                      color: KThemeModeApp.of(contextPage)
+                                          .secondaryText,
+                                      thickness: 1,
+                                      indent: 50,
+                                      endIndent: 50,
+                                    ),
+                                    Text(
+                                      "Ou entre com",
+                                      style:
+                                          KThemeModeApp.of(context).bodyMedium,
+                                    ),
+                                    Divider(
+                                      color: KThemeModeApp.of(contextPage)
+                                          .secondaryText,
+                                      thickness: 1,
+                                      indent: 20,
+                                      endIndent: 20,
+                                    ),
+                                  ],
                                 ),
                                 Center(
                                   child: Container(
+                                    padding: const EdgeInsets.all(150),
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(5),
                                         color: KThemeModeApp.of(contextPage)
-                                            .accent2),
+                                            .warning),
                                     margin: const EdgeInsets.symmetric(
                                         horizontal: 20, vertical: 15),
                                     child: Icon(FontAwesomeIcons.google,
