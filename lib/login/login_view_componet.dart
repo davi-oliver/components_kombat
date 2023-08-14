@@ -1,10 +1,7 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-
-import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import 'package:componets_kombat/login/widget/components.dart';
 import 'package:componets_kombat/theme/theme_mode.dart';
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginScreenComponets extends StatefulWidget {
   final BuildContext contextPage;
@@ -21,6 +18,7 @@ class LoginScreenComponets extends StatefulWidget {
   final Function()? initPage;
   final Function()? onTapSalvarSenha;
   final Function()? onTapEsqueciSenha;
+  final Function()? onTapEntrarGoogle;
   final double? heightCardLogin;
   final double? widthCardLogin;
   final Function()? onTapCriarConta;
@@ -48,6 +46,7 @@ class LoginScreenComponets extends StatefulWidget {
     this.widthCardLogin,
     this.containCriarLogin = false,
     this.onTapCriarConta,
+    this.onTapEntrarGoogle,
   }) : super(key: key);
 
   @override
@@ -372,48 +371,62 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                 ),
                                 Row(
                                   children: [
-                                    Divider(
-                                      color: KThemeModeApp.of(contextPage)
-                                          .secondaryText,
-                                      thickness: 1,
-                                      indent: 50,
-                                      endIndent: 50,
+                                    Expanded(
+                                      child: Divider(
+                                        color: KThemeModeApp.of(contextPage)
+                                            .lineColor,
+                                        thickness: 1,
+                                        indent: 40,
+                                        endIndent: 1,
+                                      ),
                                     ),
                                     Text(
-                                      "Ou entre com",
-                                      style:
-                                          KThemeModeApp.of(context).bodyMedium,
+                                      " Ou acesse com ",
+                                      style: KThemeModeApp.of(contextPage)
+                                          .bodyMedium
+                                          .copyWith(
+                                              color:
+                                                  KThemeModeApp.of(contextPage)
+                                                      .secondaryText),
                                     ),
-                                    Divider(
-                                      color: KThemeModeApp.of(contextPage)
-                                          .secondaryText,
-                                      thickness: 1,
-                                      indent: 20,
-                                      endIndent: 20,
+                                    Expanded(
+                                      child: Divider(
+                                        color: KThemeModeApp.of(contextPage)
+                                            .lineColor,
+                                        thickness: 1,
+                                        indent: 1,
+                                        endIndent: 40,
+                                      ),
                                     ),
                                   ],
                                 ),
-                                Center(
-                                  child: Container(
-                                    padding: const EdgeInsets.all(150),
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(5),
-                                        color: KThemeModeApp.of(contextPage)
-                                            .warning),
-                                    margin: const EdgeInsets.symmetric(
-                                        horizontal: 20, vertical: 15),
-                                    child: Icon(FontAwesomeIcons.google,
-                                        color: KThemeModeApp.of(contextPage)
-                                            .primaryBtnText),
+                                GestureDetector(
+                                  onTap: () {
+                                    widget.onTapEntrarGoogle ?? () {};
+                                  },
+                                  child: Center(
+                                    child: Container(
+                                      padding: const EdgeInsets.all(15),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(40),
+                                          color: KThemeModeApp.of(contextPage)
+                                              .error),
+                                      margin: const EdgeInsets.symmetric(
+                                          horizontal: 20, vertical: 15),
+                                      child: Icon(FontAwesomeIcons.google,
+                                          color: KThemeModeApp.of(contextPage)
+                                              .primaryBtnText),
+                                    ),
                                   ),
                                 ),
                                 widget.containCriarLogin
                                     ? Container(
                                         margin: const EdgeInsets.symmetric(
-                                            horizontal: 20, vertical: 15),
+                                            horizontal: 30, vertical: 30),
                                         child: Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                              MainAxisAlignment.start,
                                           children: [
                                             Text(
                                               "Não tem uma conta?",

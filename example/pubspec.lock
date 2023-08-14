@@ -126,7 +126,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: a545a12091a95b4de7354f9a8d3347b594eecd0e
+      resolved-ref: c534b66e95906fd9640d74f046193877c702e888
       url: "https://github.com/davi-oliver/components_kombat"
     source: git
     version: "0.0.16"
@@ -330,7 +330,7 @@ packages:
     source: sdk
     version: "0.0.0"
   font_awesome_flutter:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: font_awesome_flutter
       sha256: "5fb789145cae1f4c3245c58b3f8fb287d055c26323879eab57a7bf0cfd1e45f3"
