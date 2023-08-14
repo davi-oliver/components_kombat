@@ -374,6 +374,37 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                   height:
                                       MediaQuery.of(context).size.height * .1,
                                 ),
+                                Divider(
+                                  color: KThemeModeApp.of(contextPage)
+                                      .secondaryText,
+                                  thickness: 1,
+                                  indent: 20,
+                                  endIndent: 20,
+                                ),
+                                Text(
+                                  "Ou entre com",
+                                  style: KThemeModeApp.of(context).bodyMedium,
+                                ),
+                                Divider(
+                                  color: KThemeModeApp.of(contextPage)
+                                      .secondaryText,
+                                  thickness: 1,
+                                  indent: 20,
+                                  endIndent: 20,
+                                ),
+                                Center(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(5),
+                                        color: KThemeModeApp.of(contextPage)
+                                            .accent2),
+                                    margin: const EdgeInsets.symmetric(
+                                        horizontal: 20, vertical: 15),
+                                    child: Icon(FontAwesomeIcons.google,
+                                        color: KThemeModeApp.of(contextPage)
+                                            .primaryBtnText),
+                                  ),
+                                ),
                                 widget.containCriarLogin
                                     ? Container(
                                         margin: const EdgeInsets.symmetric(
@@ -390,7 +421,7 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                                   .copyWith(
                                                       color: KThemeModeApp.of(
                                                               contextPage)
-                                                          .primary),
+                                                          .primaryText),
                                             ),
                                             GestureDetector(
                                               onTap: () {
