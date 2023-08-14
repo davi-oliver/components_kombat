@@ -370,10 +370,6 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                     ],
                                   ),
                                 ),
-                                SizedBox(
-                                  height:
-                                      MediaQuery.of(context).size.height * .1,
-                                ),
                                 Divider(
                                   color: KThemeModeApp.of(contextPage)
                                       .secondaryText,
