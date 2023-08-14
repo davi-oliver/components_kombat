@@ -369,57 +369,73 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                     ],
                                   ),
                                 ),
-                                Row(
-                                  children: [
-                                    Expanded(
-                                      child: Divider(
-                                        color: KThemeModeApp.of(contextPage)
-                                            .lineColor,
-                                        thickness: 1,
-                                        indent: 40,
-                                        endIndent: 1,
-                                      ),
-                                    ),
-                                    Text(
-                                      " Ou acesse com ",
-                                      style: KThemeModeApp.of(contextPage)
-                                          .bodyMedium
-                                          .copyWith(
-                                              color:
-                                                  KThemeModeApp.of(contextPage)
-                                                      .secondaryText),
-                                    ),
-                                    Expanded(
-                                      child: Divider(
-                                        color: KThemeModeApp.of(contextPage)
-                                            .lineColor,
-                                        thickness: 1,
-                                        indent: 1,
-                                        endIndent: 40,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                GestureDetector(
-                                  onTap: () {
-                                    widget.onTapEntrarGoogle ?? () {};
-                                  },
-                                  child: Center(
-                                    child: Container(
-                                      padding: const EdgeInsets.all(15),
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(40),
-                                          color: KThemeModeApp.of(contextPage)
-                                              .error),
-                                      margin: const EdgeInsets.symmetric(
-                                          horizontal: 20, vertical: 15),
-                                      child: Icon(FontAwesomeIcons.google,
-                                          color: KThemeModeApp.of(contextPage)
-                                              .primaryBtnText),
-                                    ),
-                                  ),
-                                ),
+                                widget.onTapEntrarGoogle != null
+                                    ? Column(
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Expanded(
+                                                child: Divider(
+                                                  color: KThemeModeApp.of(
+                                                          contextPage)
+                                                      .lineColor,
+                                                  thickness: 1,
+                                                  indent: 40,
+                                                  endIndent: 1,
+                                                ),
+                                              ),
+                                              Text(
+                                                " Ou acesse com ",
+                                                style: KThemeModeApp.of(
+                                                        contextPage)
+                                                    .bodyMedium
+                                                    .copyWith(
+                                                        color: KThemeModeApp.of(
+                                                                contextPage)
+                                                            .secondaryText),
+                                              ),
+                                              Expanded(
+                                                child: Divider(
+                                                  color: KThemeModeApp.of(
+                                                          contextPage)
+                                                      .lineColor,
+                                                  thickness: 1,
+                                                  indent: 1,
+                                                  endIndent: 40,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          GestureDetector(
+                                            onTap: () {
+                                              widget.onTapEntrarGoogle ?? () {};
+                                            },
+                                            child: Center(
+                                              child: Container(
+                                                padding:
+                                                    const EdgeInsets.all(15),
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            40),
+                                                    color: KThemeModeApp.of(
+                                                            contextPage)
+                                                        .error),
+                                                margin:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 20,
+                                                        vertical: 15),
+                                                child: Icon(
+                                                    FontAwesomeIcons.google,
+                                                    color: KThemeModeApp.of(
+                                                            contextPage)
+                                                        .primaryBtnText),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    : Container(),
                                 widget.containCriarLogin
                                     ? Container(
                                         margin: const EdgeInsets.symmetric(
