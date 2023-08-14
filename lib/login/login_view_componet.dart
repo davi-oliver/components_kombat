@@ -407,8 +407,10 @@ class _LoginScreenComponetsState extends State<LoginScreenComponets>
                                             ],
                                           ),
                                           GestureDetector(
-                                            onTap: () {
-                                              widget.onTapEntrarGoogle ?? () {};
+                                            onTap: () async {
+                                              await widget
+                                                      .onTapEntrarGoogle!() ??
+                                                  () {};
                                             },
                                             child: Center(
                                               child: Container(
